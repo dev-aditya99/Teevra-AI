@@ -27,7 +27,7 @@ export default function App() {
   async function speak(t) {
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:8787/tts", {
+      const res = await fetch(import.meta.VITE_BACKEND_URL + "/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: t }),
