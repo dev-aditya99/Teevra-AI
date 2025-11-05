@@ -14,7 +14,6 @@ app.post("/tts", async (req, res) => {
     const { text } = req.body;
     const geminiRes = await geminiFirstAid(text);
     const geminiParsedRes = JSON.parse(`${geminiRes.split('```json')[1].split('```')[0]}`);
-    console.log(geminiParsedRes);
 
     const audio = await elevenlabs.textToSpeech.convert("JBFqnCBsd6RMkjVDRZzb", {
         text: geminiParsedRes.response,

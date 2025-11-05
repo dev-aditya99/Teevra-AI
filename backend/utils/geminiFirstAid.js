@@ -8,7 +8,6 @@ const ai = new GoogleGenAI({ apiKey: api_key })
 
 const geminiFirstAid = async (text) => {
     try {
-        console.log("userRes : ", text);
         const response = await ai.models.generateContent({
             model: "gemini-2.0-flash",
             contents: [
