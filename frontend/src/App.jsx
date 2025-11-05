@@ -23,7 +23,7 @@ export default function App() {
     }
     return () => clearInterval(id);
   }, [isRecording, isPlayingAudio]);
-
+  console.log(import.meta.env.VITE_BACKEND_URL);
   async function speak(t) {
     try {
       setIsLoading(true);
