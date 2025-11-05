@@ -5,9 +5,15 @@ import "dotenv/config"
 import geminiFirstAid from "./utils/geminiFirstAid.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+    methods: ["POST", "GET"]
+}));
+// app.use(cors());
 app.use(express.json());
 
+// eleven labs 
 const elevenlabs = new ElevenLabsClient({ apiKey: process.env.ELEVENLABS_API_KEY });
 
 app.post("/tts", async (req, res) => {
