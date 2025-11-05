@@ -23,7 +23,8 @@ export default function App() {
     }
     return () => clearInterval(id);
   }, [isRecording, isPlayingAudio]);
-  console.log(import.meta.env.VITE_BACKEND_URL);
+
+  // Speak function
   async function speak(t) {
     try {
       setIsLoading(true);
@@ -53,8 +54,10 @@ export default function App() {
     }
   }
 
+  // Speech to text function
   async function speechToText() {
     setIsRecording(true);
+
     try {
       const holdText = await startConverting();
       setText(holdText || "");
@@ -66,6 +69,7 @@ export default function App() {
     }
   }
 
+  // Background color handler
   function bgColorHandler() {
     const gradients = [
       ["#6366f1", "#a855f7", "#ec4899"],
