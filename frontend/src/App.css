@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #090f1d;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.center {
+  display: grid;
+  gap: 20px;
+  place-items: center;
+}
+
+.text {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.plain {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #1e2533;
+  border: 1px solid #2f3b4e;
+  color: white;
+  cursor: pointer;
+}
+
+.speak-btn {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 1.2s ease;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+  background: transparent;
+}
+
+.speak-btn.listening {
+  transform: scale(1.10);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.55);
+}
+
+.gradient-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+  background-size: 200% 200%;
+}
+
+.gradient-layer.visible {
+  opacity: 1;
+  animation: movingGrad 7s ease-in-out infinite;
+}
+
+@keyframes movingGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.label {
+  position: relative;
+  z-index: 2;
+  font-size: 18px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+  .speak-btn {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Big Phones */
+@media screen and (max-width: 600px) {
+  .speak-btn {
+    width: 150px;
+    height: 150px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+}
+
+/* Small Phones */
+@media screen and (max-width: 400px) {
+  .speak-btn {
+    width: 130px;
+    height: 130px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+}
